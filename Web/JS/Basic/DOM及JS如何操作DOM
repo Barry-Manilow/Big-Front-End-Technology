@@ -1,0 +1,38 @@
+#DOM
+浏览器如何为一份 HTML 文件建立模型  
+将网页转为一个JavaScript 对象，从而可以用脚本对DOM节点进行各种操作  
+#DOM Tree
+模型树 (DOM tree) 是一个网页的模型架构
+```
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/ch5.css">
+</head>
+<body>
+
+<div id="page">
+  <h1 id="header">清單</h1>
+  <h2>買雜貨</h2>
+  <ul>
+    <li id="one" class="hot"><em>新鮮</em>無花果</li>
+    <li id="two" class="hot">松子</li>
+    <li id="three" class="hot">蜂蜜</li>
+    <li id="four">香醋</li>
+  </ul>
+</div>
+
+<script src="js/ch5.js"></script>
+</body>
+</html>
+```
+![img_2.png](../StaticSource/DOMTree.png)
+DOM tree 包含 4 種節點
+✶ 文件節點 (Document node)：樹的最頂端，代表整個網頁，也稱為文件物件 (Document object)
+✶ 元素節點 (Element node)：說明 HTML 頁面的結構，由 HTML 標籤 (Tag) 構成，存取模型樹資料的方式為尋找某個元素，找到後，就可以存取該元素的屬性或文字
+✶ 屬性節點 (Attribute node)：HTML 元素的開始標籤裡所置放的屬性
+✶ 文字節點 (Text node)：HTML 元素開始與結束標籤之間的文字
+
+#JS如何操作DOM对象
+

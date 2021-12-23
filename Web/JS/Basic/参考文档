@@ -1,0 +1,14 @@
+参考文档：https://wangdoc.com/javascript/features/index.html
+1、console对象
+2、异步操作-定时器
+2-1、异步操作-Promise对象
+3、DOM-Node接口
+4-1、事件-EventTarget接口
+4-2、事件-事件模型
+4-3、事件-Event对象
+5、浏览器模型
+5-1、浏览器模型-window对象
+5-2浏览器模型-navigator对象
+5-3xmlhttprequest对象
+5-4storage接口
+
