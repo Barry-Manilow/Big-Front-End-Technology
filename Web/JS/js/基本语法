@@ -1,0 +1,13 @@
+#箭头函数
+常规语法定义函数
+```
+function funcName(params) {
+    return params + 2;
+}
+funcName(2);
+```
+使用箭头函数定义上述函数
+```
+var funcName = params => params + 2;
+funcName(2);
+```

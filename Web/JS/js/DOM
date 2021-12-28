@@ -1,8 +1,12 @@
 #DOM
-浏览器如何为一份 HTML 文件建立模型  
-将网页转为一个JavaScript 对象，从而可以用脚本对DOM节点进行各种操作  
+DOM全拼为Document Object Model（文档对象模型）  
+用于HTML和XML文档的编程接口，它给文档提供了一种结构化的表示方法，可以改变文档的内容和呈现方式。  
+可以将HTML网页转为一个JavaScript 对象，从而可以用脚本对DOM节点进行各种操作
 #DOM Tree
-模型树 (DOM tree) 是一个网页的模型架构
+DOM tree是一个网页的模型架构  
+把DOM认为是页面上数据和结构的一个树形表示如图1所示，不过页面当然可能并不是以这种树的方式具体实现（html -> brower(解析成一棵 DOM树)），js操作树就叫dom操作。
+
+
 ```
 <!doctype html>
 <html>
@@ -27,7 +31,7 @@
 </body>
 </html>
 ```
-![img_2.png](../StaticSource/DOMTree.png)
+![img_2.png](../../../StaticSource/DOMTree.png)
 DOM tree 包含 4 種節點
 ✶ 文件節點 (Document node)：樹的最頂端，代表整個網頁，也稱為文件物件 (Document object)
 ✶ 元素節點 (Element node)：說明 HTML 頁面的結構，由 HTML 標籤 (Tag) 構成，存取模型樹資料的方式為尋找某個元素，找到後，就可以存取該元素的屬性或文字

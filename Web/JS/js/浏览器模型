@@ -1,0 +1,45 @@
+首先你要了解浏览器渲染的顺序：  
+1.构建dom树  
+2.构建css树  
+3.构建渲染树  
+4.节点布局  
+5.页面渲染  
+
+#浏览器渲染原理
+首先浏览器的内核是指支持浏览器运行的最核心的程序，分为两个部分的，一是渲染引擎，另一个是JS引擎。渲染引擎在不同的浏览器中也不是都相同的。比如在 Firefox 中叫做 Gecko，在 Chrome 和 Safari 中都是基于 WebKit 开发的。
+![img.png](../../../StaticSource/浏览器渲染原理.png)
+
+#浏览器大致工作流程
+渲染引擎首先通过网络获得所请求文档的内容，通常以8K分块的方式完成。下面是渲染引擎在取得内容之后的基本流程：  
+1.解析html为dom树，解析css为cssom:渲染引擎开始解析html，并将标签转化为内容树中的dom节点。
+2. 把dom和cssom结合起来生成渲染树(render):接着，它解析外部CSS文件及style标签中的样式信息。这些样式信息以及html中的可见性指令将被用来构建另一棵树——render树。Render树由一些包含有颜色和大小等属性的矩形组成，它们将被按照正确的顺序显示到屏幕上。
+3. 布局渲染树，计算几何形状:Render树构建好了之后，将会执行布局过程，它将确定每个节点在屏幕上的确切坐标。
+4. 把渲染树展示到屏幕上。再下一步就是绘制，即遍历render树，并使用UI后端层绘制每个节点。  
+   ![img.png](../../../StaticSource/浏览器工作流程.png)
+   
+#DOM树
+
+#CSS树？
+
+![img3.png](../../../StaticSource/CSSTree.jpg)
+
+看着有点像 less 写法（less这种预处理语言，就是借用DOM树的思想，来将less这种语法结构，转译成普通的css语法，最终我们用的还是普通的css语法构成的css文件）。
+ 
+#Render树
+浏览器在构造DOM树的同时也在构造着另一棵树-Render Tree,与DOM树相对应暂且叫它Render树。我们知道DOM树为javascript提供了一些列的访问接口（DOM API），但这棵树是不对外的。它的主要作用就是把HTML按照一定的布局与样式显示出来，用到了CSS的相关知识。从MVC的角度来说，可以将render树看成是V，dom树看成是M，C则是具体的调度者，比HTMLDocumentParser等。  
+![img.png](../../../StaticSource/RenderObject.png)
+![img.png](../../../StaticSource/RenderTree.png)
+![img.png](../../../StaticSource/GenerateRenderTree.png)
+为构建渲染树，浏览器大体上完成了下列工作:
+1. 从 DOM 树的根节点开始遍历每个可见节点。 某些节点不可见（例如脚本标记、元标记等），因为它们不会体现在渲染输出中，所以会被忽略。 某些节点通过 CSS 隐藏，因此在渲染树中也会被忽略，例如，上例中的 span 节点---不会出现在渲染树中，---因为有一个显式规则在该节点上设置了“display: none”属性。
+对于每个可见节点，为其找到适配的 CSSOM 规则并应用它们。
+2. 发射可见节点，连同其内容和计算的样式。
+Note: 简单提一句，请注意 visibility: hidden 与 display: none 是不一样的。前者隐藏元素，但元素仍占据着布局空间（即将其渲染成一个空框），而后者 (display: none) 将元素从渲染树中完全移除，元素既不可见，也不是布局的组成部分。
+   
+#布局
+
+#
+
+参考文档：
+https://cloud.tencent.com/developer/article/1715276
+https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction?hl=zh-cn
